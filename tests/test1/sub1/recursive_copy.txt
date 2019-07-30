@@ -1,0 +1,1 @@
+Copying recursively means copying files and directories and subdirectories and so forth so that the destination looks just like the source. Non-recursive copying usually means that only regular files, as opposed to directories, are copied.
