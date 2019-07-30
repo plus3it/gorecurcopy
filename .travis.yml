@@ -23,7 +23,7 @@ jobs:
       go: 1.12.x
       language: go
       script:
-        - go test $(TEST) -timeout=30s -parallel=4
+        - go test
     - stage: test
       os: osx
       osx_image: xcode10.1

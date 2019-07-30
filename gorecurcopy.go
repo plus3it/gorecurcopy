@@ -11,11 +11,11 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
-	"syscall"
 )
 
 // CopyDirectory recursively copies a src directory to a destination.
 func CopyDirectory(src, dst string) error {
+	fmt.Printf("OS: %v\n", runtime.GOOS)
 	entries, err := ioutil.ReadDir(src)
 	if err != nil {
 		return err
@@ -49,13 +49,17 @@ func CopyDirectory(src, dst string) error {
 
 		fmt.Printf("OS: %v\n", runtime.GOOS)
 		if runtime.GOOS != "windows" {
-			stat, ok := fileInfo.Sys().(*syscall.Stat_t)
-			if !ok {
-				return fmt.Errorf("failed to get raw syscall.Stat_t data for '%s'", sourcePath)
-			}
-			if err := os.Lchown(destPath, int(stat.Uid), int(stat.Gid)); err != nil {
-				return err
-			}
+			fmt.Printf("OS: %v\n", runtime.GOOS)
+
+			/*
+				stat, ok := fileInfo.Sys().(*syscall.Stat_t)
+				if !ok {
+					return fmt.Errorf("failed to get raw syscall.Stat_t data for '%s'", sourcePath)
+				}
+				if err := os.Lchown(destPath, int(stat.Uid), int(stat.Gid)); err != nil {
+					return err
+				}
+			*/
 		}
 
 		isSymlink := entry.Mode()&os.ModeSymlink != 0
