@@ -15,7 +15,6 @@ import (
 
 // CopyDirectory recursively copies a src directory to a destination.
 func CopyDirectory(src, dst string) error {
-	fmt.Printf("OS: %v\n", runtime.GOOS)
 	entries, err := ioutil.ReadDir(src)
 	if err != nil {
 		return err
@@ -47,9 +46,10 @@ func CopyDirectory(src, dst string) error {
 			}
 		}
 
-		fmt.Printf("OS: %v\n", runtime.GOOS)
 		if runtime.GOOS != "windows" {
-			fmt.Printf("OS: %v\n", runtime.GOOS)
+			// `go test` fails on Windows even with this `if` supposedly
+			// protecting the `syscall.Stat_t` and `os.Lchown` calls (not
+			// available on windows). why?
 
 			/*
 				stat, ok := fileInfo.Sys().(*syscall.Stat_t)
