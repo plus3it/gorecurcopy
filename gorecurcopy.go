@@ -10,7 +10,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"runtime"
 )
 
 // CopyDirectory recursively copies a src directory to a destination.
@@ -46,21 +45,21 @@ func CopyDirectory(src, dst string) error {
 			}
 		}
 
-		if runtime.GOOS != "windows" {
-			// `go test` fails on Windows even with this `if` supposedly
-			// protecting the `syscall.Stat_t` and `os.Lchown` calls (not
-			// available on windows). why?
+		// `go test` fails on Windows even with this `if` supposedly
+		// protecting the `syscall.Stat_t` and `os.Lchown` calls (not
+		// available on windows). why?
+		/*
+			if runtime.GOOS != "windows" {
 
-			/*
-				stat, ok := fileInfo.Sys().(*syscall.Stat_t)
-				if !ok {
-					return fmt.Errorf("failed to get raw syscall.Stat_t data for '%s'", sourcePath)
-				}
-				if err := os.Lchown(destPath, int(stat.Uid), int(stat.Gid)); err != nil {
-					return err
-				}
-			*/
-		}
+					stat, ok := fileInfo.Sys().(*syscall.Stat_t)
+					if !ok {
+						return fmt.Errorf("failed to get raw syscall.Stat_t data for '%s'", sourcePath)
+					}
+					if err := os.Lchown(destPath, int(stat.Uid), int(stat.Gid)); err != nil {
+						return err
+					}
+			}
+		*/
 
 		isSymlink := entry.Mode()&os.ModeSymlink != 0
 		if !isSymlink {
