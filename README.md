@@ -1,9 +1,9 @@
 # gorecurcopy
 
-[![Build Status](https://travis-ci.org/YakDriver/gorecurcopy.svg?branch=master)](https://travis-ci.org/YakDriver/gorecurcopy)
-[![GoDoc](https://godoc.org/github.com/YakDriver/gorecurcopy?status.svg)](https://godoc.org/github.com/YakDriver/gorecurcopy)
-[![Go Report Card](https://goreportcard.com/badge/github.com/YakDriver/gorecurcopy)](https://goreportcard.com/report/github.com/YakDriver/gorecurcopy)
-[![Version](https://img.shields.io/github/tag/YakDriver/gorecurcopy)](https://github.com/YakDriver/gorecurcopy/releases)
+[![Build Status](https://travis-ci.org/plus3it/gorecurcopy.svg?branch=master)](https://travis-ci.org/plus3it/gorecurcopy)
+[![GoDoc](https://godoc.org/github.com/plus3it/gorecurcopy?status.svg)](https://godoc.org/github.com/plus3it/gorecurcopy)
+[![Go Report Card](https://goreportcard.com/badge/github.com/plus3it/gorecurcopy)](https://goreportcard.com/report/github.com/plus3it/gorecurcopy)
+[![Version](https://img.shields.io/github/tag/plus3it/gorecurcopy)](https://github.com/plus3it/gorecurcopy/releases)
 
 
 
@@ -13,7 +13,7 @@ Example:
 
 ```go
 import (
-	"github.com/YakDriver/gorecurcopy"
+	"github.com/plus3it/gorecurcopy"
 )
 
 ...
