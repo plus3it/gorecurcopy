@@ -7,7 +7,7 @@
 
 
 
-`gorecurcopy` copies directories recursively with no external dependencies.
+`gorecurcopy` copies directories recursively without external dependencies. Compatible with OSX, Linux, and Windows.
 
 Example:
 
