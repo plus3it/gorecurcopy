@@ -12,5 +12,11 @@
 Example:
 
 ```go
-err := CopyDirectory("your/directory", "your/directory.copy")
+import (
+	"github.com/YakDriver/gorecurcopy"
+)
+
+...
+
+err := gorecurcopy.CopyDirectory("directory", "new_directory")
 ```
