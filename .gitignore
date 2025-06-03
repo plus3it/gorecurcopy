@@ -10,3 +10,10 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# tardigrade-ci
+.tardigrade-ci
+tardigrade-ci/
+
+#macOS local dir meta file
+.DS_Store

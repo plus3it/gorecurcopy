@@ -13,7 +13,7 @@ Example:
 
 ```go
 import (
-	"github.com/plus3it/gorecurcopy"
+  "github.com/plus3it/gorecurcopy"
 )
 
 ...

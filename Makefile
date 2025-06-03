@@ -1,7 +1,9 @@
+include $(shell test -f .tardigrade-ci || curl -sSL -o .tardigrade-ci "https://raw.githubusercontent.com/plus3it/tardigrade-ci/master/bootstrap/Makefile.bootstrap"; echo .tardigrade-ci)
+
 TEST?=./...
 GOFMT_FILES?=$$(find . -name '*.go' | grep -v vendor)
 
-default: build
+default:: build
 
 build: fmt lint test
 	go install
@@ -13,9 +15,8 @@ fmt:
 	@echo "==> Fixing source code with gofmt..."
 	gofmt -s -w $(GOFMT_FILES)
 
-lint:
+golint:
 	@echo "==> Checking source code against linters..."
-	@GOGC=30 golangci-lint run $(TEST)
+	golint ./...
 
 .PHONY: build test fmt lint
-
