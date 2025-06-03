@@ -1,0 +1,28 @@
+name: Run lint and static analyis checks
+on:
+  pull_request:
+
+concurrency:
+  group: lint-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: plus3it/actions-workflows/.github/workflows/lint.yml@78caa4f6a2b5426af0ade68fb706176ee58fda84
+
+  golint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Set up Go
+        uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5
+        with:
+          go-version-file: 'go.mod'
+
+      - name: Install golint
+        run: go install golang.org/x/lint/golint@latest
+
+      - name: Run go linter
+        run: make golint
