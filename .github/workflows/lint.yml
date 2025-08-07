@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
   lint:
-    uses: plus3it/actions-workflows/.github/workflows/lint.yml@1c7909107a55325d40d2f12f29029c73a38c45c3
+    uses: plus3it/actions-workflows/.github/workflows/lint.yml@3b8e48de2da8233d170c1d094932a562d9a36990
 
   golint:
     runs-on: ubuntu-latest
