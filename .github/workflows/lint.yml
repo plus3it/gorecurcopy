@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
   lint:
-    uses: plus3it/actions-workflows/.github/workflows/lint.yml@ddd67e99878a285f728de398c1116151c2d7791a
+    uses: plus3it/actions-workflows/.github/workflows/lint.yml@0a03f75193a010b3532cc90e8ad0b15a09ed33c1
 
   golint:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
 
       - name: Set up Go
-        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
           go-version-file: 'go.mod'
 
